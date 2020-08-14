@@ -35,8 +35,8 @@
   </mat-card-content>
 
   <mat-card-actions>
-    <button mat-raised-button color="primary">Add</button>
-    <button mat-raised-button>Cancel</button>
+    <button [disabled]="form.invalid" (click)="submit()" mat-raised-button color="primary">Add</button>
+    <button (click)="cancel()" mat-raised-button>Cancel</button>
   </mat-card-actions>
 </mat-card>
 <!-- <pre>

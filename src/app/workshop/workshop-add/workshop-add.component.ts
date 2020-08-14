@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 import { WorkshopEntry } from '../shared/model/model';
+import { WorkshopService } from '../shared/services/workshop.service';
 
 @Component({
   selector: 'ws-workshop-add',
@@ -11,9 +14,25 @@ export class WorkshopAddComponent implements OnInit {
 
   entry: WorkshopEntry = {};
 
-  constructor() { }
+  @ViewChild('form') form: FormControl;
 
-  ngOnInit(): void {
+  constructor(private workshopService: WorkshopService,
+              private router: Router) { }
+
+  ngOnInit(): void {}
+
+  submit(): void {
+    // Make sure form is valid
+    if(this.form.valid) {
+      // Access to the model
+      this.workshopService.addWorkshopEntry(this.entry);
+      // Redirect to Home page
+      this.router.navigate(['/']);
+    }
+  }
+
+  cancel(): void {
+    this.router.navigate(['/']);
   }
 
 }

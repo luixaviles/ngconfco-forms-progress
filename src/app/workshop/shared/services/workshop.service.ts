@@ -19,4 +19,13 @@ export class WorkshopService {
   getWorkshopEntries(): WorkshopEntry[] {
     return DATA;
   }
+
+  addWorkshopEntry(entry: WorkshopEntry): void {
+    entry.id = this.getRandomId();
+    DATA.push(entry);
+  }
+
+  getRandomId() {
+    return Math.floor(Math.random()*10000);
+  }
 }
