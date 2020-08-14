@@ -4,9 +4,18 @@
     <form [formGroup]="form">
       <mat-form-field>
         <input type="text" matInput placeholder="User" formControlName="user">
+        <mat-error *ngIf="form.get('user').getError('required') && (form.get('user').dirty || form.get('user').touched)">
+          User is required
+        </mat-error>
       </mat-form-field>
       <mat-form-field>
         <input type="text" matInput placeholder="Workshop" formControlName="workshop">
+        <mat-error *ngIf="workshop.getError('required') && (workshop.dirty || workshop.touched)">
+          Workshop is required
+        </mat-error>
+        <mat-error *ngIf="workshop.getError('minlength') && (workshop.dirty || workshop.touched)">
+          Workshop length is too short
+        </mat-error>
       </mat-form-field>
       <mat-form-field>
         <input type="text" matInput placeholder="Ticket Price" formControlName="ticketPrice">
@@ -17,7 +26,10 @@
     </form>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button color="primary">Edit</button>
+    <button (click)="submit()" mat-raised-button color="primary">Edit</button>
     <button mat-raised-button>Cancel</button>
   </mat-card-actions>
+  <span *ngIf="formStatus$ | async; let formStatus">
+    Your form is {{formStatus}}
+  </span>
 </mat-card>

@@ -29,6 +29,11 @@ export class WorkshopService {
     return DATA.find(entry => entry.id === id);
   }
 
+  editWorkshopEntry(entry: WorkshopEntry) {
+    const index = DATA.findIndex(e => entry.id === e.id);
+    DATA[index] = entry;
+  }
+
   getRandomId() {
     return Math.floor(Math.random()*10000);
   }
