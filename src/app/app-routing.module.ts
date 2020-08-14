@@ -14,11 +14,11 @@ const routes: Routes = [
     redirectTo: 'workshop/list'
   },
   {
-    path: 'workshop/list',
+    path: 'workshop/list', // url
     component: WorkshopListComponent
   },
   {
-    path: 'workshop/add',
+    path: 'workshop/add', // url
     component: WorkshopAddComponent
   },
 ];
