@@ -6,11 +6,20 @@
       <mat-form-field>
         <input type="text" matInput placeholder="User" name="user" [(ngModel)]="entry.user" #user="ngModel"
                required>
+        <mat-error *ngIf="user.errors?.required && (user.dirty || user.touched)">
+          User is required
+        </mat-error>
       </mat-form-field>
 
       <mat-form-field>
         <input type="text" matInput placeholder="Workshop" name="workshop" [(ngModel)]="entry.workshop" #workshop="ngModel"
                required minlength="5">
+        <mat-error *ngIf="workshop.errors?.required && (workshop.dirty || workshop.touched)">
+          Workshop is required
+        </mat-error>
+        <mat-error *ngIf="workshop.errors?.minlength && (workshop.dirty || workshop.touched)">
+          Workshop length is too short
+        </mat-error>
       </mat-form-field>
 
       <mat-form-field>
@@ -30,6 +39,22 @@
     <button mat-raised-button>Cancel</button>
   </mat-card-actions>
 </mat-card>
-<code>
+<!-- <pre>
+  Form.valid: {{form.valid}}
+  Form.invalid: {{form.invalid}}
+  Form.pristine: {{form.pristine}}
+  Form.dirty: {{form.dirty}}
+  Form.touched: {{form.touched}}
+  Form.untouched: {{form.untouched}}
+</pre> -->
+<!-- <pre>
+  user.valid: {{user.valid}}
+  user.invalid: {{user.invalid}}
+  user.pristine: {{user.pristine}}
+  user.dirty: {{user.dirty}}
+  user.touched: {{user.touched}}
+  user.untouched: {{user.untouched}}
+</pre> -->
+<!-- <code>
   {{entry | json}}
-</code>
+</code> -->
