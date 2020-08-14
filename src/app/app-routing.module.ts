@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { WorkshopAddComponent } from './workshop/workshop-add/workshop-add.component';
+import { WorkshopEditComponent } from './workshop/workshop-edit/workshop-edit.component';
 import { WorkshopListComponent } from './workshop/workshop-list/workshop-list.component';
 
 const routes: Routes = [
@@ -20,6 +21,10 @@ const routes: Routes = [
   {
     path: 'workshop/add', // url
     component: WorkshopAddComponent
+  },
+  {
+    path: 'workshop/edit/:id',
+    component: WorkshopEditComponent
   },
 ];
 

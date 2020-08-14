@@ -1,0 +1,23 @@
+<mat-card>
+  <mat-card-title>Edit Workshop Entry</mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="form">
+      <mat-form-field>
+        <input type="text" matInput placeholder="User" formControlName="user">
+      </mat-form-field>
+      <mat-form-field>
+        <input type="text" matInput placeholder="Workshop" formControlName="workshop">
+      </mat-form-field>
+      <mat-form-field>
+        <input type="text" matInput placeholder="Ticket Price" formControlName="ticketPrice">
+      </mat-form-field>
+      <mat-form-field>
+        <input type="text" matInput placeholder="Workshop URL" formControlName="url">
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary">Edit</button>
+    <button mat-raised-button>Cancel</button>
+  </mat-card-actions>
+</mat-card>
