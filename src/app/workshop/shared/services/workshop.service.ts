@@ -25,6 +25,10 @@ export class WorkshopService {
     DATA.push(entry);
   }
 
+  getWorkshopEntry(id: number): WorkshopEntry {
+    return DATA.find(entry => entry.id === id);
+  }
+
   getRandomId() {
     return Math.floor(Math.random()*10000);
   }
